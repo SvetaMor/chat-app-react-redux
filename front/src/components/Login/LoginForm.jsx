@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Label, Button } from '../../jss';
 
 class LoginForm extends Component
 {
@@ -7,10 +8,10 @@ class LoginForm extends Component
       const {handleSubmit} = this.props;
       return (
          <form onSubmit={handleSubmit}>
-             <label>Username:</label>
+             <Label>Username:</Label>
              <Field name="username" component="input" type="text"
                     placeholder='Username' required/>
-             <button type="submit">Log in</button>
+             <Button type="submit">Log in</Button>
          </form>
       )
    }

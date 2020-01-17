@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Login from '../Login/Login';
 import DialogsContainer from '../Dialogs/DialogsContainer';
+import { Wrapper } from '../../jss';
 
 class App extends Component
 {
@@ -16,16 +17,16 @@ class App extends Component
       this.setState({username});
    }
 
-   render() {
+   render() { debugger
       return (
-         <div>
+         <Wrapper>
             { !this.props.isAuth
                ? <Login setUsername={this.setUsername} />
                : <DialogsContainer username={this.state.username}
                                    setUsername={this.setUsername}
                  />
             }
-         </div>
+         </Wrapper>
       );
    }
 }

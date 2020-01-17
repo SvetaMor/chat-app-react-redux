@@ -5,14 +5,18 @@ import { connect } from 'react-redux';
 
 class Login extends Component
 {
-   handleSubmit = (formData) => {
+   handleSubmit = (formData) => { debugger
       const {setUsername} = this.props;
       setUsername(formData.username);
       this.props.login(true);
    }
 
    render() {
-      return <LoginForm onSubmit={this.handleSubmit} />
+      return <div>
+               <h2>Welcome to our chat!</h2>
+               <LoginForm onSubmit={this.handleSubmit} />
+               <p>Sign in to start chatting</p>
+            </div>
    }
 }
 

@@ -23,7 +23,7 @@ const DialogsContainer = (props) => {
 const connection = new WebSocket('ws://localhost:8080/');
 
 const getMessage = (message, username) => {
-   const data = {message: message, username: username}; debugger
+   const data = {message: message, username: username};
    connection.send(JSON.stringify(data));
 }
 

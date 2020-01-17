@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, change } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
+import { Button } from '../../../jss';
 
 class AddingMessageForm extends Component
 {
@@ -22,8 +23,8 @@ class AddingMessageForm extends Component
          <form onSubmit={handleSubmit}>
             <Field name="message" component="textarea" type="text"
                    ref={(el) => this.message = el} onKeyDown={this.messageHandler}
-            />
-            <input type="submit" value="Send" />
+            /><br/>
+            <Button type="submit">Send</Button>
          </form>
       );
    }
