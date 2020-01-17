@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 
 class DisplayMessages extends Component
 {
-   render() {
+   displayMessage = () =>
+      this.props.messages.map((message, i) =>
+         <div key={i}>
+            {message.username}: {message.message}
+         </div>
+      )
+
+   render () {
       return (
          <div>
-            <p>DisplayMessages</p>
+            {this.displayMessage()}
          </div>
       );
    }

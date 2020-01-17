@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Login from '../Login/Login';
 import DialogsContainer from '../Dialogs/DialogsContainer';
 
@@ -18,13 +19,19 @@ class App extends Component
    render() {
       return (
          <div>
-            { !this.state.username
+            { !this.props.isAuth
                ? <Login setUsername={this.setUsername} />
-               : <DialogsContainer username={this.state.username}/>
+               : <DialogsContainer username={this.state.username}
+                                   setUsername={this.setUsername}
+                 />
             }
          </div>
       );
    }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    isAuth: state.app.isAuth
+})
+
+export default connect(mapStateToProps)(App);

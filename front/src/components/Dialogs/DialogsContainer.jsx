@@ -1,32 +1,30 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import DisplayMessages from './DisplayMessages/DisplayMessages';
 import AddingMessage from './AddingMessage/AddingMessage';
 
-class DialogsContainer extends Component
-{
-   constructor(props) {
-      super(props);
-      this.state = {
-         messages: []
+const DialogsContainer = (props) => {
+   const [messages, setMessages] = useState([]);
+
+   useEffect(() => {
+      connection.onmessage = (message) => {
+         const data = JSON.parse(message.data);
+         setMessages([...messages, data]);
       }
-   }
+   });
 
-   connection = new WebSocket('ws://localhost:8080/');
+   return (
+      <Fragment>
+         <DisplayMessages messages={messages}/>
+         <AddingMessage getMessage={getMessage} username={props.username}/>
+      </Fragment>
+   );
+}
 
-   getMessage = (message) => {
-      //this.setState({messages: [...this.state.messages], messages});
-      const data = {username: this.props.username, message: message};
-      this.connection.send(JSON.stringify(data));
-   }
+const connection = new WebSocket('ws://localhost:8080/');
 
-   render() {
-      return (
-         <Fragment>
-            <DisplayMessages />
-            <AddingMessage getMessage={this.getMessage}/>
-         </Fragment>
-      );
-   }
+const getMessage = (message, username) => {
+   const data = {message: message, username: username}; debugger
+   connection.send(JSON.stringify(data));
 }
 
 export default DialogsContainer;

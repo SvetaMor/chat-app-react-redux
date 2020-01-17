@@ -7,6 +7,12 @@ wss.on('connection', (connection) => {
    clients.push(connection);
 
    connection.on('message', (message) => {
-      console.log(message);
+      const data = JSON.parse(message);
+      broadcast(data);
    })
 })
+
+broadcast = (message) => {
+   const data = JSON.stringify(message);
+   clients.forEach(client => client.send(data));
+}
