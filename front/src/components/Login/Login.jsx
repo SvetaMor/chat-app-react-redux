@@ -3,13 +3,13 @@ import LoginForm from './LoginForm';
 
 class Login extends Component
 {
+   handleSubmit = (formData) => {
+      const {setUsername} = this.props;
+      setUsername(formData.username);
+   }
+
    render() {
-      return (
-         <div>
-            <h3>Login</h3>
-            <LoginForm />
-         </div>
-      );
+      return <LoginForm onSubmit={this.handleSubmit} />
    }
 }
 
