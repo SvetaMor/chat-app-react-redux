@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class Login extends Component
 {
-   handleSubmit = (formData) => { debugger
+   handleSubmit = (formData) => {
       const {setUsername} = this.props;
       setUsername(formData.username);
       this.props.login(true);

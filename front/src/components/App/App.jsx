@@ -17,7 +17,7 @@ class App extends Component
       this.setState({username});
    }
 
-   render() { debugger
+   render() {
       return (
          <Wrapper>
             { !this.props.isAuth

@@ -12,7 +12,6 @@ const useStyles = createUseStyles({
       },
       'text-align': 'center',
       color: '#610B4B'
-
    },
    myLabel: {
       color: '#B404AE',
