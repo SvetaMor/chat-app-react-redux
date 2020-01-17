@@ -10,7 +10,7 @@ class LoginForm extends Component
              <label>Username:</label>
              <Field name="username" component="input" type="text"
                     placeholder='Username' required/>
-             <button type="submit">Log in< /button>
+             <button type="submit">Log in</button>
          </form>
       )
    }
